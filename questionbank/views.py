@@ -17,17 +17,17 @@ def home(request: HttpRequest):
                 <h5>Available urls for apis are</h5>
                 <ol>
                     <li>
-                        <a href="/employee">
+                        <a href="/employee" target="_blank">
                             {base_domain}/employee
                         </a>
                     </li>
                     <li>
-                        <a href="/cart/cart-items">
+                        <a href="/cart/cart-items" target="_blank">
                             {base_domain}/cart/cart-items
                         </a>
                     </li>
                     <li>
-                        <a href="/quiz">
+                        <a href="/quiz" target="_blank">
                             {base_domain}/quiz
                         </a>
                     </li>
