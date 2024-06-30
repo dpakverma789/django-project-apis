@@ -1,5 +1,5 @@
 echo "======> INSTALLING REQUIREMENTS <======"
-pip3 install -r api_requirements.txt
+pip3 install -r requirements.txt
 echo "======> REQUIREMENTS INSTALLED <======"
 
 echo "======> COLLECTING STATIC FILES <======"
