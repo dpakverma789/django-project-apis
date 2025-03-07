@@ -82,14 +82,13 @@ WSGI_APPLICATION = 'API.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ugiozjnq',
-        'USER': 'ugiozjnq',
-        'PASSWORD': 'bfl_d6JhTiHf1fgnpZkyGoGimkK901PX',
-        'HOST': 'hattie.db.elephantsql.com',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST')
     }
 }
 

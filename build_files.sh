@@ -1,9 +1,15 @@
 echo "======> INSTALLING REQUIREMENTS <======"
-pip3 install -r requirements.txt
+# create a virtual environment named 'venv' if it doesn't already exist
+python3.9 -m venv venv
+
+# activate the virtual environment
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
 echo "======> REQUIREMENTS INSTALLED <======"
 
 echo "======> COLLECTING STATIC FILES <======"
-python3 manage.py collectstatic --noinput --clear
+python3 manage.py collectstatic --noinput
 echo "======> STATIC FILES COLLECTED <======"
 
 echo "======> MAKE-MIGRATIONS <======"
