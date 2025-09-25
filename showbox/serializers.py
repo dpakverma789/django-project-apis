@@ -16,7 +16,7 @@ class TheaterDetailsSerializer(serializers.ModelSerializer):
         model = TheaterDetails
         fields = [
             "id", "theater_name", "show_details", "show_name", "show_time",
-            "capacity", "per_seat_price", "reserved_seats", "unreserved_seats", "available_seats"
+            "capacity", "per_seat_price", "reserved_seats", "available_seats"
         ]
 
     def get_available_seats(self, obj):
