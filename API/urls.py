@@ -24,7 +24,7 @@ urlpatterns = [
     path('employee/', include('employee_app.urls')),
     path('cart/', include('ShoppingCart.urls')),
     path('', include('questionbank.urls')),
-    path('show/', include('ShowBox.urls')),
+    path('show/', include('showbox.urls')),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
