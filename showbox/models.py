@@ -18,7 +18,7 @@ class TheaterDetails(models.Model):
 
 
     def __str__(self):
-        return self.theater_name
+        return f'{self.theater_name} - {self.show_details}'
 
 
 class BookingDetails(models.Model):
@@ -27,3 +27,6 @@ class BookingDetails(models.Model):
     amount = models.IntegerField(default=0)
     theater_details = models.ForeignKey(TheaterDetails, on_delete=models.CASCADE,db_column="theater_details_id") # M2O
     show_details = models.ForeignKey(ShowDetails, on_delete=models.CASCADE,db_column="show_details_id") # M2O
+
+    def __str__(self):
+        return self.name
