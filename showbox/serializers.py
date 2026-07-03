@@ -1,6 +1,15 @@
 from rest_framework import serializers
 from .models import *
 
+"""
+Serializer = Translator between Python objects and JSON data.
+
+Converting model → JSON (serialization)
+Converting JSON → model (deserialization)
+
+If API = direct representation of model → ModelSerializer
+If API ≠ model structure → Serializer
+"""
 
 class ShowDetailsSerializer(serializers.ModelSerializer):
     class Meta:
