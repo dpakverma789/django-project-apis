@@ -1,0 +1,56 @@
+name: APIs
+
+services:
+
+  web:
+    build: .
+    image: apis-app:v1.0
+    container_name: apis-web
+
+    command: python manage.py runserver 0.0.0.0:8000
+
+    volumes:
+      - .:/app
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+    environment:
+      POSTGRES_DB: apis_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+
+
+  db:
+    image: postgres:18
+
+    ports:
+      - "127.0.0.1:5433:5432"
+
+    container_name: apis-postgres
+
+    environment:
+      # Keep data in the existing named-volume mount with PostgreSQL 18.
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: apis_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d apis_database"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+    volumes:
+      - apis-postgres-data:/var/lib/postgresql/data
+
+
+volumes:
+  apis-postgres-data:
